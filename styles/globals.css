@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Ici on créé une classe custom pour du style */
+@layer components {
+  .link {
+    @apply hover:underline cursor-pointer;
+  }
+}
