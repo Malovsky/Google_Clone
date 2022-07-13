@@ -1,14 +1,14 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import Container from "../components/Container";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Container />
+      <Header />
       <Component {...pageProps} />
-      {/* Have to investigate why i can't wrap */}
-      {/* </Container> */}
+      <Footer />
     </>
   );
 }
