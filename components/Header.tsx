@@ -1,6 +1,6 @@
 import User from "./User";
 
-const Header: React.FC = () => {
+const Header = () => {
   return (
     <header className="flex justify-between p-5 text-sm text-gray-700">
       <div className="flex space-x-4 items-center">

@@ -1,6 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import { getProviders } from "next-auth/react";
-import Image from "next/image";
+import { getProviders, signIn } from "next-auth/react";
 
 type Provider = {
   callbackUrl: string;
@@ -11,12 +10,10 @@ type Provider = {
 };
 
 type SignInProps = {
-  providers: Provider;
+  providers: Provider[];
 };
 
-const signIn: React.FC = ({ providers }: any) => {
-  console.log(providers);
-
+const signin = ({ providers }: SignInProps) => {
   return (
     <div className="">
       {Object.values(providers).map((provider) => (
@@ -32,13 +29,16 @@ const signIn: React.FC = ({ providers }: any) => {
           <p className="text-center text-lg italic">
             This website is created for learning purpose
           </p>
+          <button onClick={() => signIn(provider.id, { callbackUrl: "/" })}>
+            Sign in with {provider.name}
+          </button>
         </div>
       ))}
     </div>
   );
 };
 
-export default signIn;
+export default signin;
 
 export const getServerSideProps = async () => {
   const providers = await getProviders();
