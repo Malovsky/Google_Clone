@@ -15,9 +15,9 @@ type SignInProps = {
 
 const signin = ({ providers }: SignInProps) => {
   return (
-    <div className="">
+    <div className="flex justify-center mt-12 mb-12">
       {Object.values(providers).map((provider) => (
-        <div key={uuidv4()} className="">
+        <div key={uuidv4()} className="flex flex-col items-center">
           <p className="text-9xl font-semibold text-center m-16">
             <span className="text-blue-500">G</span>
             <span className="text-red-500">o</span>
@@ -26,10 +26,13 @@ const signin = ({ providers }: SignInProps) => {
             <span className="text-green-600">l</span>
             <span className="text-red-500">e</span>
           </p>
-          <p className="text-center text-lg italic">
+          <p className="text-center text-lg italic m-4">
             This website is created for learning purpose
           </p>
-          <button onClick={() => signIn(provider.id, { callbackUrl: "/" })}>
+          <button
+            className="text-white bg-red-400 px-6 py-2 rounded m-8 hover:bg-red-500"
+            onClick={() => signIn(provider.id, { callbackUrl: "/" })}
+          >
             Sign in with {provider.name}
           </button>
         </div>
