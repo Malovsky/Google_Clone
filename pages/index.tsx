@@ -28,8 +28,6 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* HEADER */}
-      {/* BODY */}
       <form className="flex flex-col items-center my-16 mx-8">
         <Image
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/langfr-2880px-Google_2015_logo.svg.png"
@@ -54,7 +52,6 @@ const Home: NextPage = () => {
           <button className="btn-home-search">I&rsquo;m feeling luky</button>
         </div>
       </form>
-      {/* FOOTER */}
     </div>
   );
 };
