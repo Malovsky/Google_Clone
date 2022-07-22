@@ -16,7 +16,7 @@ const Home: NextPage = () => {
       const term: string = searchInputRef.current.value;
       // console.log("term : ", typeof term);
       if (!term.trim()) return;
-      router.push(`/search?term=${term.trim()}`);
+      router.push(`/search?term=${term.trim()}&searchType=`);
     }
   };
 
