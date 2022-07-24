@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 import { getProviders, signIn } from "next-auth/react";
 import Image from "next/image";
+import Link from "next/link";
 
 type Provider = {
   callbackUrl: string;
@@ -19,21 +20,16 @@ const signin = ({ providers }: SignInProps) => {
     <div className="flex justify-center mt-12 mb-12">
       {Object.values(providers).map((provider) => (
         <div key={uuidv4()} className="flex flex-col items-center my-16 mx-8">
-          <Image
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/langfr-2880px-Google_2015_logo.svg.png"
-            alt="Google logo"
-            height="100"
-            objectFit="cover"
-            width="300"
-          />
-          {/* <p className="text-9xl font-semibold text-center m-16">
-            <span className="text-blue-500">G</span>
-            <span className="text-red-500">o</span>
-            <span className="text-yellow-500">o</span>
-            <span className="text-blue-500">g</span>
-            <span className="text-green-600">l</span>
-            <span className="text-red-500">e</span>
-          </p> */}
+          <Link href="/">
+            <Image
+              className="cursor-pointer"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/langfr-2880px-Google_2015_logo.svg.png"
+              alt="Google logo"
+              height="100"
+              objectFit="cover"
+              width="300"
+            />
+          </Link>
           <p className="text-center text-lg italic m-4">
             This website is created for learning purpose
           </p>
