@@ -22,9 +22,9 @@ const signin = ({ providers }: SignInProps) => {
           <Image
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/langfr-2880px-Google_2015_logo.svg.png"
             alt="Google logo"
-            height="200"
+            height="100"
             objectFit="cover"
-            width="600"
+            width="300"
           />
           {/* <p className="text-9xl font-semibold text-center m-16">
             <span className="text-blue-500">G</span>

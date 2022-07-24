@@ -32,9 +32,9 @@ const Home: NextPage = () => {
         <Image
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/langfr-2880px-Google_2015_logo.svg.png"
           alt="Google logo"
-          height="200"
+          height="100"
           objectFit="cover"
-          width="600"
+          width="300"
         />
         <div className="flex w-full justify-center my-8 max-w-[90%] sm:max-w-xl lg:max-w-2xl border border-gray-200 hover:shadow-lg focus-within:shadow-lg rounded-full px-4 py-2 items-center">
           <SearchIcon className="h-5 text-gray-500 mr-2" />
