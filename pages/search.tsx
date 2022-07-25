@@ -2,29 +2,28 @@ import Head from "next/head";
 import SearchHeader from "../components/SearchHeader";
 import { GetServerSideProps } from "next";
 import Response from "../Response";
+import SearchResults from "../components/SearchResults";
+import { useRouter } from "next/router";
 
 type searchProps = {
-  results: JSON;
+  // TYPE JSON ?
+  results: any;
 };
 
-const search = ({ results }: searchProps) => {
-  console.log({ results });
-
+const Search = ({ results }: searchProps) => {
+  const route = useRouter();
   return (
     <>
       <Head>
-        <title>Search Page</title>
+        <title>{route.query.term} - Search page</title>
       </Head>
-
-      {/* SEARCH HEADER */}
       <SearchHeader />
-
-      {/* SEARCH RESULT */}
+      <SearchResults results={results} />
     </>
   );
 };
 
-export default search;
+export default Search;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   // On mock des datas ici pour éviter d'utilisre mon crédit gratuit de l'API Google
