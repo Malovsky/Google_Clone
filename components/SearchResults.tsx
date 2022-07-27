@@ -1,4 +1,5 @@
 import Parser from "html-react-parser";
+import PaginationButtons from "./PaginationButtons";
 
 type SearchResultsProps = {
   // TYPE JSON ?
@@ -11,10 +12,10 @@ const SearchResults = ({ results }: SearchResultsProps) => {
   return (
     <div className="w-full mx-auto px-4 sm:pl-[5%] md:pl-[14%] lg:pl-48">
       <p className="text-gray-600 text-sm my-4">
-        About {results.results.searchInformation.formattedTotalResults} results
-        ({results.results.searchInformation.formattedSearchTime} seconds)
+        About {results.searchInformation.formattedTotalResults} results (
+        {results.searchInformation.formattedSearchTime} seconds)
       </p>
-      {results.results.items.map((result: any) => (
+      {results.items.map((result: any) => (
         <div key={result.link} className="max-w-xl mb-8">
           <div className="group">
             <a className="text-sm truncate" href={result.link}>
@@ -32,6 +33,7 @@ const SearchResults = ({ results }: SearchResultsProps) => {
           <p className="text-gray-600">{Parser(result.htmlSnippet)}</p>
         </div>
       ))}
+      <PaginationButtons />
     </div>
   );
 };

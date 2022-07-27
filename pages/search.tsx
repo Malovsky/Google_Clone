@@ -26,6 +26,7 @@ const Search = ({ results }: searchProps) => {
 export default Search;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  const startIndex = context.query.start || "1";
   // On mock des datas ici pour éviter d'utilisre mon crédit gratuit de l'API Google
   const mockData = true;
   const data = mockData
@@ -35,7 +36,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
           process.env.API_KEY
         }&cx=${process.env.CONTEXT_KEY}&q=${context.query.term}${
           context.query.searchType && "&searchType=image"
-        }`
+        }&start=${startIndex}`
       ).then((response) => response.json());
 
   return {
