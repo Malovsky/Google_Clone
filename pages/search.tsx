@@ -1,9 +1,13 @@
 import Head from "next/head";
 import SearchHeader from "../components/SearchHeader";
 import { GetServerSideProps } from "next";
+// Ici je peux mock les datas pour la recherche all
 import Response from "../Response";
+// Ici je peux mock les datas pour la recherche image
+import ResponseImages from "../ResponseImages";
 import SearchResults from "../components/SearchResults";
 import { useRouter } from "next/router";
+import ImageResults from "../components/ImageResults";
 
 type searchProps = {
   // TYPE JSON ?
@@ -18,7 +22,11 @@ const Search = ({ results }: searchProps) => {
         <title>{route.query.term} - Search page</title>
       </Head>
       <SearchHeader />
-      <SearchResults results={results} />
+      {route.query.searchType === "image" ? (
+        <ImageResults results={results} />
+      ) : (
+        <SearchResults results={results} />
+      )}
     </>
   );
 };
@@ -30,7 +38,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   // On mock des datas ici pour éviter d'utilisre mon crédit gratuit de l'API Google
   const mockData = true;
   const data = mockData
-    ? Response
+    ? ResponseImages
     : await fetch(
         `https://www.googleapis.com/customsearch/v1?key=${
           process.env.API_KEY
