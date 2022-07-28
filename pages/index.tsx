@@ -14,10 +14,20 @@ const Home: NextPage = () => {
     event.preventDefault();
     if (searchInputRef.current) {
       const term: string = searchInputRef.current.value;
-      // console.log("term : ", typeof term);
       if (!term.trim()) return;
       router.push(`/search?term=${term.trim()}&searchType=`);
     }
+  };
+
+  const randomSearch = async (event: any) => {
+    event.preventDefault();
+    const randomTerm = await fetch(
+      "https://random-word-api.herokuapp.com/word?number=1"
+    ).then((response) => response.json());
+
+    if (!randomTerm) return;
+
+    router.push(`/search?term=${randomTerm}&searchType=`);
   };
 
   return (
@@ -49,7 +59,9 @@ const Home: NextPage = () => {
           <button onClick={search} className="btn-home-search">
             Google Search
           </button>
-          <button className="btn-home-search">I&rsquo;m feeling luky</button>
+          <button onClick={randomSearch} className="btn-home-search">
+            I&rsquo;m feeling luky
+          </button>
         </div>
       </form>
     </div>
