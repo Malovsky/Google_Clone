@@ -1,8 +1,13 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Footer = () => {
+  const route = useRouter();
+
+  console.log({ route });
+
   return (
-    <footer className="flex flex-col absolute bottom-0 left-[50%] translate-x-[-50%] whitespace-nowrap p-4 text-sm text-gray-600">
+    <footer className="flex flex-col items-center whitespace-nowrap px-4 py-24 text-sm text-gray-600">
       <p>
         Copyright &copy; {new Date().getFullYear()}
         <span> </span>
